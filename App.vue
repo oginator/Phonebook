@@ -17,11 +17,6 @@
         <button v-on:click="removeElement(index)">Remove</button>
         <hr />
       </li>
-      <li v-for="(contact, index) in jsonParsed" v-bind:key="index">
-        {{ contact.name + " -- " + contact.number }}
-        <button v-on:click="removeElement(index)">Remove</button>
-        <hr />
-      </li>
     </ol>
   </div>
 </template>
@@ -39,7 +34,11 @@ export default {
   },
   mounted() {
     this.jsonParsed = JSON.parse(localStorage.getItem("data"));
-    console.log(this.jsonParsed);
+    if (this.jsonParsed.length > 0) {
+      this.contacts = this.jsonParsed;
+    }
+
+    console.log(this.contacts);
   },
   methods: {
     addNewUser() {
