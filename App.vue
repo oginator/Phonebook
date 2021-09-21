@@ -53,9 +53,7 @@ export default {
     removeElement(index) {
       if (this.contacts.length > 0) {
         this.contacts.splice(index, 1);
-      } else if (this.jsonParsed.length > 0) {
-        this.jsonParsed.splice(index, 1);
-      }
+      } 
     },
     saveStorage() {
       localStorage.setItem("data", JSON.stringify(this.contacts));
